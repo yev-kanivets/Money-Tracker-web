@@ -16,6 +16,6 @@ CREATE TABLE users (
 	created_at INTEGER,
 	full_name TEXT,
 	email TEXT,
+	password TEXT,
 	PRIMARY KEY (id)
 );
-	
