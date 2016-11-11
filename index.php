@@ -3,7 +3,6 @@
    session_start();
 ?>
 
-<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -14,9 +13,9 @@
 		<div class = "container">
          <?php
             if (isset($_SESSION['user_id'])) {
-				echo "<p>Welcome, ".$_SESSION['username']." (".$_SESSION['user_id'].")!</p>";
+				echo "<p>Welcome, ".$_SESSION['username']."!</p>";
 			} else {
-				header('Location: '.'sign_in.php', true, $permanent ? 301 : 302);
+				include "sign_in.php";
 				exit();
 			}
          ?>
