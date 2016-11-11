@@ -21,6 +21,7 @@
 							<p><input type="password" name="password" size="40" maxlength="40" placeholder="Password" /></p>
 							<p><input type="password" name="confirm_password" size="40" maxlength="40" placeholder="Confirm password" /></p>
 							<p><input type="submit" value="Sign Up" /></p>
+							<a href="index.php?action=action_show_sign_in_page">Already have an account? Sign In</a>
 						</fieldset>
 					</form>';
 			}
@@ -66,6 +67,7 @@
 							<p><input type="email" name="email" size="40" maxlength="40" placeholder="Email" /></p>
 							<p><input type="password" name="password" size="40" maxlength="40" placeholder="Password" /></p>
 							<p><input type="submit" value="Sign In" /></p>
+							<a href="index.php?action=action_show_sign_up_page">Don\'t have an account? Sign Up</a>
 						</fieldset>
 					</form>';
 			}
