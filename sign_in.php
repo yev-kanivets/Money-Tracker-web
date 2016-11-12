@@ -55,7 +55,6 @@
       <div class = "container">
          <form action="sign_in.php" method="post">
             <fieldset>
-               <input type="hidden" name="action" value="action_sign_in" />
                <p><input type="email" name="email" size="40" maxlength="40" placeholder="Email" /></p>
                <p><input type="password" name="password" size="40" maxlength="40" placeholder="Password" /></p>
                <p><input type="submit" name= "sign_in" value="Sign In" /></p>

@@ -1,9 +1,15 @@
+CREATE TABLE categories (
+	id INTEGER NOT NULL AUTO_INCREMENT,
+	title TEXT,
+	PRIMARY KEY (id)
+);
+
 CREATE TABLE records (
 	id INTEGER NOT NULL AUTO_INCREMENT,
 	time INTEGER,
 	type INTEGER,
 	title TEXT,
-	category INTEGER,
+	category_id INTEGER,
 	price INTEGER,
 	account_id INTEGER,
 	currency TEXT,
