@@ -44,11 +44,11 @@
 					}
 					
 					function deleteUrl($record) {
-						return '<a href="">Delete</a>';
+						return '<a href="delete_record.php?record_id='.$record['record_id'].'">Delete</a>';
 					}
 					
 					function displayRecords($conn) {
-						$sql = 'SELECT time, records.title AS title, categories.title AS category, price 
+						$sql = 'SELECT records.id AS record_id, time, records.title AS title, categories.title AS category, price 
 								FROM records, categories
 								WHERE user_id='.$_SESSION['user_id'].'
 								AND category_id=categories.id;';
