@@ -51,10 +51,9 @@
 								VALUES (".$type.", '".time()."', '".$price."', '".$title."', '"
 								.getCategoryId($conn, $category)."', '".$_SESSION['user_id']."');";
 					} else {
-						$sql = "UPDATE records SET type=".$type.", price=".$price.", title=".$title.", category_id=".getCategoryId($conn, $category)." 
+						$sql = "UPDATE records SET type=".$type.", price=".$price.", title='".$title."', category_id=".getCategoryId($conn, $category)." 
 								WHERE id=".$_POST['record_id'].";";
 					}
-					echo $sql;
 					$conn->exec($sql);
 					header('Location: '.'index.php', true, $permanent ? 301 : 302);
 				} else {
@@ -99,6 +98,5 @@
 				</fieldset>
 			 </form>
       </div> 
-      	</div> 
 	</body>
 </html>
