@@ -22,8 +22,8 @@
       	</div>
       
       	<div class = "container">
-			<a href="add_record.php?type=income">Add income</a>
-			<a href="add_record.php?type=expense">Add expense</a>
+			<a href="add_record.php?action=add&type=0">Add income</a>
+			<a href="add_record.php?action=add&type=1">Add expense</a>
          	<a href="logout.php">Logout</a>
       	</div> 
 		
@@ -40,7 +40,7 @@
 					include ("connect.php");
 					
 					function editUrl($record) {
-						return '<a href="">Edit</a>';
+						return '<a href="add_record.php?action=edit&record_id='.$record['record_id'].'&type='.$record['type'].'&price='.$record['price'].'&title='.$record['title'].'&category='.$record['category'].'">Edit</a>';
 					}
 					
 					function deleteUrl($record) {
@@ -48,7 +48,7 @@
 					}
 					
 					function displayRecords($conn) {
-						$sql = 'SELECT records.id AS record_id, time, records.title AS title, categories.title AS category, price 
+						$sql = 'SELECT records.id AS record_id, type, time, records.title AS title, categories.title AS category, price 
 								FROM records, categories
 								WHERE user_id='.$_SESSION['user_id'].'
 								AND category_id=categories.id;';

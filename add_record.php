@@ -34,15 +34,6 @@
 			function addRecord($conn, $type, $price, $title, $category) {
 				$error = "";
 				
-				$typeId = -1;
-				if ($type == "income") {
-					$typeId = 0;
-				} else if ($type == "expense") {
-					$typeId = 1;
-				} else {
-					$error = "Unknown record type.";
-				}
-				
 				if (is_int($price) && $price >= 0) {
 					$error = "Invalid price.";
 				}
@@ -54,11 +45,17 @@
 				}
 
 				if ($error == "") {
-					$createRecordSql = "INSERT INTO records (type, time, price, title, category_id, user_id)
-								VALUES (".$typeId.", '".time()."', '".$price."', '".$title."', '"
+					$sql = "";
+					if ($_POST['action'] == 'add') {
+						$sql = "INSERT INTO records (type, time, price, title, category_id, user_id)
+								VALUES (".$type.", '".time()."', '".$price."', '".$title."', '"
 								.getCategoryId($conn, $category)."', '".$_SESSION['user_id']."');";
-								echo $createRecordSql;
-					$conn->exec($createRecordSql);
+					} else {
+						$sql = "UPDATE records SET type=".$type.", price=".$price.", title=".$title.", category_id=".getCategoryId($conn, $category)." 
+								WHERE id=".$_POST['record_id'].";";
+					}
+					echo $sql;
+					$conn->exec($sql);
 					header('Location: '.'index.php', true, $permanent ? 301 : 302);
 				} else {
 					header('Location: '.'error.php?error='.$error, true, $permanent ? 301 : 302);
@@ -90,11 +87,15 @@
 			<form action="add_record.php" method="post">
 				<fieldset>
 					<h2>Add record</h2>
-					<?php echo '<input type="hidden" name="type" value="'.$_GET['type'].'" />' ?>
-					<p><input type="number" name="price" size="40" maxlength="40" placeholder="Price" /></p>
-					<p><input type="text" name="title" size="40" maxlength="40" placeholder="Title" /></p>
-					<p><input type="text" name="category" size="40" maxlength="40" placeholder="Category" /></p>
-					<p><input type="submit" name= "add_record" value="Add record" /></p>
+					<?php
+						echo '<input type="hidden" name="action" value="'.$_GET['action'].'" />
+							  <input type="hidden" name="record_id" value="'.$_GET['record_id'].'" />
+							  <input type="hidden" name="type" value="'.$_GET['type'].'" />
+							  <p><input type="number" name="price" size="40" maxlength="40" placeholder="Price" value="'.$_GET['price'].'""/></p>
+							  <p><input type="text" name="title" size="40" maxlength="40" placeholder="Title" value="'.$_GET['title'].'"/></p>
+							  <p><input type="text" name="category" size="40" maxlength="40" placeholder="Category" value="'.$_GET['category'].'"/></p>
+							  <p><input type="submit" name= "add_record" value="Add record"/></p>'
+					?>
 				</fieldset>
 			 </form>
       </div> 
