@@ -28,14 +28,6 @@
       	</div> 
 		
 		<div class = "container">
-			<table>
-				<caption>Records</caption>
-				<tr>
-					<th>Time</th>
-					<th>Title</th>
-					<th>Category</th>
-					<th>Price</th>
-				</tr>
 				<?php
 					include ("connect.php");
 					
@@ -52,7 +44,25 @@
 								FROM records, categories
 								WHERE user_id='.$_SESSION['user_id'].'
 								AND category_id=categories.id;';
+						
+						$totalIncome = 0;
+						$totalExpense = 0;
+						
+						echo '<table>
+								<caption>Records</caption>
+								<tr>
+									<th>Time</th>
+									<th>Title</th>
+									<th>Category</th>
+									<th>Price</th>
+								</tr>';
+								
 						foreach ($conn->query($sql) as $row) {
+							if ($row['type'] == 0) {
+								$totalIncome += $row['price'];
+							} else {
+								$totalExpense += abs($row['price']);
+							}
 							echo '<tr>
 									<td>'.$row['time'].'</td>
 									<td>'.$row['title'].'</td>
@@ -62,6 +72,13 @@
 									<td>'.deleteUrl($row).'</td>
 								 </tr>';
 						}
+						
+						echo '</table>';
+						
+						echo '<h2>Short summary</h2>';
+						echo '<p>Total income: '.$totalIncome.'</p>';
+						echo '<p>Total expense: '.$totalExpense.'</p>';
+						echo '<p>Total: '.($totalIncome - $totalExpense).'</p>';
 					}
 					
 					try {
@@ -73,7 +90,6 @@
 						echo "<p>Error: ".$error->getMessage()."</p>\n";
 					}
 				?>
-			</table>
 		</div>
 	</body>
 </html>
