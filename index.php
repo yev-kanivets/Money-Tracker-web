@@ -25,7 +25,16 @@
 			<a href="add_record.php?action=add&type=0">Add income</a>
 			<a href="add_record.php?action=add&type=1">Add expense</a>
          	<a href="logout.php">Logout</a>
-      	</div> 
+      	</div>
+		
+		<div class = "container">
+			<h2>Select period of time</h2>
+			<form>
+				<?php echo '<input type="date" name="date_from" value="'.date('Y-m-01').'">'; ?>
+				<?php echo '<input type="date" name="date_to" value="'.date("Y-m-t", strtotime(date('Y-m-01'))).'">'; ?>
+				<input type="submit" name= "display_list" value="Display records"/>
+			<form>
+		</div>
 		
 		<div class = "container">
 				<?php
