@@ -87,12 +87,17 @@
 				<fieldset>
 					<h2>Add record</h2>
 					<?php
+						$record_id = isset($_GET['record_id']) ? $_GET['record_id'] : null;
+						$price = isset($_GET['price']) ? $_GET['price'] : null;
+						$title = isset($_GET['title']) ? $_GET['title'] : null;
+						$category = isset($_GET['category']) ? $_GET['category'] : null;
+						
 						echo '<input type="hidden" name="action" value="'.$_GET['action'].'" />
-							  <input type="hidden" name="record_id" value="'.$_GET['record_id'].'" />
+							  <input type="hidden" name="record_id" value="'.$record_id.'" />
 							  <input type="hidden" name="type" value="'.$_GET['type'].'" />
-							  <p><input type="number" name="price" size="40" maxlength="40" placeholder="Price" value="'.$_GET['price'].'""/></p>
-							  <p><input type="text" name="title" size="40" maxlength="40" placeholder="Title" value="'.$_GET['title'].'"/></p>
-							  <p><input type="text" name="category" size="40" maxlength="40" placeholder="Category" value="'.$_GET['category'].'"/></p>
+							  <p><input type="number" name="price" size="40" maxlength="40" placeholder="Price" value="'.$price.'""/></p>
+							  <p><input type="text" name="title" size="40" maxlength="40" placeholder="Title" value="'.$title.'"/></p>
+							  <p><input type="text" name="category" size="40" maxlength="40" placeholder="Category" value="'.$category.'"/></p>
 							  <p><input type="submit" name= "add_record" value="Add record"/></p>'
 					?>
 				</fieldset>
