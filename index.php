@@ -30,8 +30,14 @@
 		<div class = "container">
 			<h2>Select period of time</h2>
 			<form>
-				<?php echo '<input type="date" name="date_from" value="'.date('Y-m-01').'">'; ?>
-				<?php echo '<input type="date" name="date_to" value="'.date("Y-m-t", strtotime(date('Y-m-01'))).'">'; ?>
+				<?php
+					$dateFrom = isset($_GET['date_from']) ? $_GET['date_from'] : date('Y-m-01');
+					echo '<input type="date" name="date_from" value="'.$dateFrom.'">'; 
+				?>
+				<?php
+					$dateTo = isset($_GET['date_to']) ? $_GET['date_to'] : date("Y-m-t", strtotime(date('Y-m-01')));  
+					echo '<input type="date" name="date_to" value="'.$dateTo.'">'; 
+				?>
 				<input type="submit" name= "display_list" value="Display records"/>
 			<form>
 		</div>
@@ -48,11 +54,13 @@
 						return '<a href="delete_record.php?record_id='.$record['record_id'].'">Delete</a>';
 					}
 					
-					function displayRecords($conn) {
+					function displayRecords($conn, $ts_from, $ts_to) {
 						$sql = 'SELECT records.id AS record_id, type, time, records.title AS title, categories.title AS category, price 
 								FROM records, categories
-								WHERE user_id='.$_SESSION['user_id'].'
-								AND category_id=categories.id;';
+								WHERE user_id='.$_SESSION['user_id'].
+								' AND category_id=categories.id'.
+								' AND time BETWEEN '.$ts_from.' AND '.($ts_to + 24 * 60 * 60 - 1).';';
+						echo $sql;
 						
 						$totalIncome = 0;
 						$totalExpense = 0;
@@ -94,7 +102,11 @@
 						$conn = new PDO("mysql:host=$host;dbname=$dbname", $login, $password);
 						// set the PDO error mode to exception
 						$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-						displayRecords($conn);
+
+						$dateFrom = isset($_GET['date_from']) ? $_GET['date_from'] : date('Y-m-01');
+						$dateTo = isset($_GET['date_to']) ? $_GET['date_to'] : date("Y-m-t", strtotime(date('Y-m-01')));
+
+						displayRecords($conn, strtotime($dateFrom), strtotime($dateTo));
 					} catch(PDOException $error) {
 						echo "<p>Error: ".$error->getMessage()."</p>\n";
 					}
