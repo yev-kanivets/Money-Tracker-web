@@ -1,0 +1,65 @@
+body {
+	background-color: #eceff0;
+}
+
+.main_container {
+	background-color: #ffffff;
+	margin: 20px auto;
+	width: 100%;
+	max-width: 800px;
+}
+
+.header {
+	background-color: #8bc34a;
+	padding: 10px 20px;
+	color: white;
+}
+
+.footer {
+	background-color: #8bc34a;
+	padding: 10px 20px;
+	color: white;
+}
+
+.container {
+	padding: 10px 20px;
+}
+
+.links_container {
+	margin: 5px 0px;
+	overflow:hidden;
+	text-align: center;
+}
+
+.links_container a {
+	color: white;
+	text-decoration: none;
+}
+
+.record_income {
+	background-color: #f1f8e9;
+}
+
+.record_expense {
+	background-color: #ffebee;
+}
+
+.link_add_income {
+	background-color: #8bc34a;
+	width: 50%;
+	display:block;
+	float:left;
+	padding: 10px 0px;
+}
+
+.link_add_expense {
+	background-color: #f44336;
+	width: 50%;
+	display:block;
+	float:left;
+	padding: 10px 0px;
+}
+
+table {
+	width: 100%;
+}

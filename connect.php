@@ -1,6 +1,6 @@
 <?php
 	$host = "localhost";
 	$login = "root";
-	$password = "root";
+	$password = "";
 	$dbname = "money_tracker"; 
 ?>
