@@ -38,7 +38,7 @@
 					$dateTo = isset($_GET['date_to']) ? $_GET['date_to'] : date("Y-m-t", strtotime(date('Y-m-01')));  
 					echo '<input type="date" name="date_to" value="'.$dateTo.'">'; 
 				?>
-				<input type="submit" name= "display_list" value="Display records"/>
+				<input type="submit" value="Display records"/>
 			<form>
 		</div>
 		
@@ -55,12 +55,12 @@
 					}
 					
 					function displayRecords($conn, $ts_from, $ts_to) {
+						$ts_to += (24 * 60 * 60 - 1);
 						$sql = 'SELECT records.id AS record_id, type, time, records.title AS title, categories.title AS category, price 
 								FROM records, categories
 								WHERE user_id='.$_SESSION['user_id'].
 								' AND category_id=categories.id'.
-								' AND time BETWEEN '.$ts_from.' AND '.($ts_to + 24 * 60 * 60 - 1).';';
-						echo $sql;
+								' AND time BETWEEN '.$ts_from.' AND '.$ts_to.';';
 						
 						$totalIncome = 0;
 						$totalExpense = 0;
@@ -78,7 +78,7 @@
 							if ($row['type'] == 0) {
 								$totalIncome += $row['price'];
 							} else {
-								$totalExpense += abs($row['price']);
+								$totalExpense += $row['price'];
 							}
 							echo '<tr>
 									<td>'.$row['time'].'</td>
@@ -96,6 +96,7 @@
 						echo '<p>Total income: '.$totalIncome.'</p>';
 						echo '<p>Total expense: '.$totalExpense.'</p>';
 						echo '<p>Total: '.($totalIncome - $totalExpense).'</p>';
+						echo '<a href="report.php?ts_from='.$ts_from.'&ts_to='.$ts_to.'">Report</a>';
 					}
 					
 					try {
