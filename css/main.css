@@ -60,6 +60,18 @@ body {
 	padding: 10px 0px;
 }
 
+.period_container  {
+	padding: 0px 140px;
+}
+
+.period_container input {
+	width: 150px;
+}
+
 table {
 	width: 100%;
+}
+
+td {
+	padding: 5px 10px;
 }
