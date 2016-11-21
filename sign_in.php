@@ -11,7 +11,7 @@
       <link rel="stylesheet" type="text/css" href="css/login.css">
    </head>
    <body>
-      <div class = "main_container">   
+      <div class = "main_container">
          <div class = "container">
             <?php
                include ("connect.php");
