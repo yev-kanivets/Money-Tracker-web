@@ -7,7 +7,7 @@
 <html>
    <head>
       <meta charset="utf-8">
-      <title>Sign in to Money Tracker</title>
+      <title>Entrer au Compteur d'argent</title>
       <link rel="stylesheet" type="text/css" href="css/login.css">
    </head>
    <body>
@@ -56,12 +56,12 @@
          
          <div class = "container">
             <form action="sign_in.php" method="post">
-               <h3>Sign in to Money Tracker</h3>
+               <h3>Entrer au Compteur d'argent</h3>
                <fieldset>
-                  <p><input type="email" name="email" size="40" maxlength="40" placeholder="Email" /></p>
-                  <p><input type="password" name="password" size="40" maxlength="40" placeholder="Password" /></p>
-                  <p><input type="submit" name= "sign_in" value="Sign In" /></p>
-                  <a href="sign_up.php">Don't have an account? Sign Up</a>
+                  <p><input type="email" name="email" size="40" maxlength="40" placeholder="E-mail" /></p>
+                  <p><input type="password" name="password" size="40" maxlength="40" placeholder="Mot de passe" /></p>
+                  <p><input type="submit" name= "sign_in" value="Entrer" /></p>
+                  <a href="sign_up.php">Vous n'avez pas encore de compte? Signer</a>
                </fieldset>
             </form>
          </div> 
