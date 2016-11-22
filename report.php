@@ -6,7 +6,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Report</title>
+		<title>Compte rendu</title>
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 	</head>
 
@@ -56,8 +56,8 @@
 					
 					echo '<table>
 							<tr>
-								<th>Category</th>
-								<th>Price</th>
+								<th>Catégorie</th>
+								<th>Prix</th>
 							</tr>';
 					
 					foreach ($report as $category => $total) {
@@ -88,9 +88,9 @@
 						}
 					}
 								
-					echo '<h2>Short summary</h2>
-						  <p>Total income: '.$totalIncome.'<br>
-						  Total expense: '.$totalExpense.'<br>
+					echo '<h2>Bref copmte rendu</h2>
+						  <p>: Revenu total'.$totalIncome.'<br>
+						  Dépense total: '.$totalExpense.'<br>
 						  Total: '.($totalIncome - $totalExpense).'</p>';
 				}
 			 
