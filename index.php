@@ -89,7 +89,7 @@
 									$recordClass = "record_expense";
 								}
 								echo '<tr class="'.$recordClass.'">
-										<td>'.$row['time'].'</td>
+										<td>'.date("Y-m-d H:i", $row['time']).'</td>
 										<td>'.$row['title'].'</td>
 										<td>'.$row['category'].'</td>
 										<td>'.$row['price'].'</td>

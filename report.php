@@ -62,7 +62,7 @@
 					
 					foreach ($report as $category => $total) {
 						$recordClass = "";
-						if ($row['type'] == 0) {
+						if ($total >= 0) {
 							$recordClass = "record_income";
 						} else {
 							$recordClass = "record_expense";
