@@ -55,11 +55,11 @@
 						include ("connect.php");
 						
 						function editUrl($record) {
-							return '<a href="add_record.php?action=edit&record_id='.$record['record_id'].'&type='.$record['type'].'&price='.$record['price'].'&title='.$record['title'].'&category='.$record['category'].'">Edit</a>';
+							return '<a href="add_record.php?action=edit&record_id='.$record['record_id'].'&type='.$record['type'].'&price='.$record['price'].'&title='.$record['title'].'&category='.$record['category'].'">Corriger</a>';
 						}
 						
 						function deleteUrl($record) {
-							return '<a href="delete_record.php?record_id='.$record['record_id'].'">Delete</a>';
+							return '<a href="delete_record.php?record_id='.$record['record_id'].'">Supprimer</a>';
 						}
 						
 						function getRecords($conn, $ts_from, $ts_to) {
