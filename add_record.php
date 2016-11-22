@@ -6,7 +6,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Add record</title>
+		<title>Ajouter note</title>
 		<link rel="stylesheet" type="text/css" href="css/form.css">
 	</head>
 
@@ -37,13 +37,13 @@
 					$error = "";
 					
 					if (is_int($price) && $price >= 0) {
-						$error = "Invalid price.";
+						$error = "Prix non valable.";
 					}
 					if (strlen($title) == 0) {
-						$error = "Title can't be empty.";
+						$error = "Titre ne peut pas être vide.";
 					}
 					if (strlen($category) == 0) {
-						$error = "Category can't be empty.";
+						$error = "Catégorie ne peut pas être vide.";
 					}
 
 					if ($error == "") {
@@ -77,7 +77,7 @@
 					  addRecord($conn, $_POST['type'], $_POST['price'], $_POST['title'],
 									$_POST['category']);
 				   } catch(PDOException $error) {
-					  echo "<p>Error: ".$error->getMessage()."</p>\n";
+					  echo "<p>Erreur: ".$error->getMessage()."</p>\n";
 				   }
 				   exit();
 				}
@@ -90,12 +90,12 @@
 						<?php
 							$record = "";
 							if ($_GET['type'] == 0) {
-								$record = "income";
+								$record = "un revenu";
 							} else {
-								$record = "expense";
+								$record = "une dépense";
 							}
 							
-							echo '<h2>Add '.$record.'</h2>';
+							echo '<h2>Ajouter '.$record.'</h2>';
 							
 							$record_id = isset($_GET['record_id']) ? $_GET['record_id'] : null;
 							$price = isset($_GET['price']) ? $_GET['price'] : null;
@@ -105,10 +105,10 @@
 							echo '<input type="hidden" name="action" value="'.$_GET['action'].'" />
 								  <input type="hidden" name="record_id" value="'.$record_id.'" />
 								  <input type="hidden" name="type" value="'.$_GET['type'].'" />
-								  <p><input type="number" name="price" size="40" maxlength="40" placeholder="Price" value="'.$price.'""/></p>
-								  <p><input type="text" name="title" size="40" maxlength="40" placeholder="Title" value="'.$title.'"/></p>
-								  <p><input type="text" name="category" size="40" maxlength="40" placeholder="Category" value="'.$category.'"/></p>
-								  <p><input type="submit" name= "add_record" value="Add '.$record.'"/></p>'
+								  <p><input type="number" name="price" size="40" maxlength="40" placeholder="Prix" value="'.$price.'""/></p>
+								  <p><input type="text" name="title" size="40" maxlength="40" placeholder="Titre" value="'.$title.'"/></p>
+								  <p><input type="text" name="category" size="40" maxlength="40" placeholder="Catégorie" value="'.$category.'"/></p>
+								  <p><input type="submit" name= "add_record" value="Ajouter '.$record.'"/></p>'
 						?>
 					</fieldset>
 				 </form>
