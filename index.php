@@ -11,20 +11,20 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Money Tacker</title>
+		<title>Compteur d'argent</title>
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 	</head>
 
 	<body>
 		<div class = "main_container">	      
 			<div class = "header">
-				<?php echo "<p class >Welcome, ".$_SESSION['username']."!</p>"; ?>
-				<a href="logout.php">Logout</a>
+				<?php echo "<p class >Bienvenu, ".$_SESSION['username']."!</p>"; ?>
+				<a href="logout.php">Sortir</a>
 			</div>
 
 	      	<div class = "links_container">
-				<a class = "link_add_income" href="add_record.php?action=add&type=0">Add income</a>
-				<a class = "link_add_expense" href="add_record.php?action=add&type=1">Add expense</a>
+				<a class = "link_add_income" href="add_record.php?action=add&type=0">Ajouter un revenu</a>
+				<a class = "link_add_expense" href="add_record.php?action=add&type=1">Ajouter une dépense</a>
 	      	</div>
 			
 			<div class = "period_container">
@@ -37,7 +37,7 @@
 						$dateTo = isset($_GET['date_to']) ? $_GET['date_to'] : date("Y-m-t", strtotime(date('Y-m-01')));  
 						echo '<input type="date" name="date_to" value="'.$dateTo.'">'; 
 					?>
-					<input type="submit" value="Display records"/>
+					<input type="submit" value="Afficher les notes"/>
 					<?php
 						$dateFrom = isset($_GET['date_from']) ? $_GET['date_from'] : date('Y-m-01');
 						$dateTo = isset($_GET['date_to']) ? $_GET['date_to'] : date("Y-m-t", strtotime(date('Y-m-01')));
@@ -45,7 +45,7 @@
 						$ts_from = strtotime($dateFrom);
 						$ts_to = strtotime($dateTo) + (24 * 60 * 60 - 1);
 						
-						echo '<a href="report.php?ts_from='.$ts_from.'&ts_to='.$ts_to.'">Report</a>';
+						echo '<a href="report.php?ts_from='.$ts_from.'&ts_to='.$ts_to.'">Compte rendu</a>';
 					?>
 				<form>
 			</div>
@@ -75,10 +75,10 @@
 						function displayRecords($conn, $ts_from, $ts_to) {							
 							echo '<table>
 									<tr>
-										<th>Time</th>
-										<th>Title</th>
-										<th>Category</th>
-										<th>Price</th>
+										<th>Temps</th>
+										<th>Titre</th>
+										<th>Catégorie</th>
+										<th>Prix</th>
 									</tr>';
 									
 							foreach (getRecords($conn, $ts_from, $ts_to) as $row) {
@@ -111,13 +111,13 @@
 							
 							displayRecords($conn, strtotime($dateFrom), strtotime($dateTo));
 						} catch(PDOException $error) {
-							echo "<p>Error: ".$error->getMessage()."</p>\n";
+							echo "<p>Erreur: ".$error->getMessage()."</p>\n";
 						}
 					?>
 			</div>
 
 			<div class = "footer">
-				<p>Created by Evgenii Kanivets and Elena Martiuk</p>
+				<p>Crée par Evgenii Kanivets et Hélène Martiuk</p>
 			</div>
 		</div>
 	</body>
