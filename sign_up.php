@@ -36,7 +36,7 @@
                   $error = "";
 
                   if (strlen($full_name) == 0) {
-                     $error = "Nom ne doit être vide.";
+                     $error = "Nom ne doit pas être vide.";
                   }
                   if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                      $error = "E-mail n'est pas valable.";
