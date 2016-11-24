@@ -45,7 +45,7 @@
                      $error = "Mots de passe doivent être éguaux et longueur > 5.";
                   }
                   if (isUserExists($conn, $email)) {
-                     $error = "Usager avec cet email existe déjà.";
+                     $error = "Utilisateur avec cet e-mail existe déjà.";
                   }
 
                   if ($error == "") {
