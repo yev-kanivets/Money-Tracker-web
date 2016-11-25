@@ -9,10 +9,10 @@
       <meta charset="utf-8">
       <title>Entrer sur Compteur d'argent</title>
       <link rel="stylesheet" type="text/css" href="css/login.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
    </head>
    <body>
-      <div class = "main_container">
-         <div class = "container">
+      <div class = "container">
             <?php
                include ("connect.php");
 
@@ -52,19 +52,41 @@
                   }
                }
             ?>
-         </div>
-         
-         <div class = "container">
-            <form action="sign_in.php" method="post">
-               <h3>Entrer sur Compteur d'argent</h3>
-               <fieldset>
-                  <p><input type="email" name="email" size="40" maxlength="40" placeholder="E-mail" /></p>
-                  <p><input type="password" name="password" size="40" maxlength="40" placeholder="Mot de passe" /></p>
-                  <p><input type="submit" name= "sign_in" value="Entrer" /></p>
-                  <a href="sign_up.php">Vous n'avez pas encore de compte? Signer</a>
-               </fieldset>
-            </form>
-         </div> 
-   </div>
+      </div>
+
+      <section id="login">
+          <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                   <div class="form-wrap">     
+                   <h1>Entrer sur Compteur d'argent</h1>             
+                          <form role="form"  action="sign_in.php" method="post" id="login-form" autocomplete="on">
+                              <div class="form-group">
+                                  <label for="email" class="sr-only">E-mail</label>
+                                  <input type="email" name="email" id="email" class="form-control" placeholder="E-mail">
+                              </div>
+                              <div class="form-group">
+                                  <label for="password" class="sr-only">Mot de passe</label>
+                                  <input type="password" name="password" id="key" class="form-control" placeholder="Mot de passe">
+                              </div>
+                              <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" name= "sign_in" value="Entrer">
+                          </form>
+                          <a href="sign_up.php" class="forget">Vous n'avez pas encore de compte? Signer</a>
+                          <hr>
+                   </div>
+               </div> <!-- /.col-xs-12 -->
+            </div> <!-- /.row -->
+          </div> <!-- /.container -->
+      </section>
+
+      <footer id="footer">
+          <div class="container">
+              <div class="row">
+                  <div class="col-xs-12">
+                      <p>Crée par Evgenii Kanivets et Hélène Martiuk</p>
+                  </div>
+              </div>
+          </div>
+      </footer>
    </body>
 </html>
