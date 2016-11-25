@@ -68,7 +68,8 @@
 									FROM records, categories
 									WHERE user_id='.$_SESSION['user_id'].
 									' AND category_id=categories.id'.
-									' AND time BETWEEN '.$ts_from.' AND '.$ts_to.';';
+									' AND time BETWEEN '.$ts_from.' AND '.$ts_to.' '.
+									'ORDER BY time DESC;';
 							return $conn->query($sql);
 						}
 						
