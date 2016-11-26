@@ -8,11 +8,12 @@
 		<meta charset="utf-8">
 		<title>Ajouter note</title>
 		<link rel="stylesheet" type="text/css" href="css/form.css">
+		<link rel="stylesheet" type="text/css" href="css/login.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	</head>
 
 	<body>
-		<div class = "main_container">
-			<div class = "container">
+		<div class = "container">
 			 <?php
 				include ("connect.php");
 				
@@ -82,11 +83,14 @@
 				   exit();
 				}
 			 ?>
-			</div>
-		  
-			<div class = "container">
-				<form action="add_record.php" method="post">
-					<fieldset>
+		</div>
+		
+		<section id="login">
+          <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                   <div class="form-wrap">     
+                   <h1>
 						<?php
 							$record = "";
 							if ($_GET['type'] == 0) {
@@ -94,25 +98,52 @@
 							} else {
 								$record = "une dépense";
 							}
-							
-							echo '<h2>Ajouter '.$record.'</h2>';
-							
+							echo 'Ajouter '.$record;
+						?>
+				   </h1>             
+					<form role="form"  action="add_record.php" method="post" id="login-form" autocomplete="on">
+						<?php
 							$record_id = isset($_GET['record_id']) ? $_GET['record_id'] : null;
 							$price = isset($_GET['price']) ? $_GET['price'] : null;
 							$title = isset($_GET['title']) ? $_GET['title'] : null;
 							$category = isset($_GET['category']) ? $_GET['category'] : null;
 							
-							echo '<input type="hidden" name="action" value="'.$_GET['action'].'" />
-								  <input type="hidden" name="record_id" value="'.$record_id.'" />
-								  <input type="hidden" name="type" value="'.$_GET['type'].'" />
-								  <p><input type="number" name="price" size="40" maxlength="40" placeholder="Prix" value="'.$price.'""/></p>
-								  <p><input type="text" name="title" size="40" maxlength="40" placeholder="Titre" value="'.$title.'"/></p>
-								  <p><input type="text" name="category" size="40" maxlength="40" placeholder="Catégorie" value="'.$category.'"/></p>
-								  <p><input type="submit" name= "add_record" value="Ajouter '.$record.'"/></p>'
+							echo '	<input type="hidden" name="action" value="'.$_GET['action'].'" />
+									<input type="hidden" name="record_id" value="'.$record_id.'" />
+									<input type="hidden" name="type" value="'.$_GET['type'].'" />
+								  
+									<div class="form-group">
+										<label for="price" class="sr-only">Prix</label>
+										<input type="number" name="price" id="email" class="form-control" placeholder="Prix" value="'.$price.'">
+									</div>
+									<div class="form-group">
+										<label for="title" class="sr-only">Titre</label>
+										<input type="text" name="title" id="email" class="form-control" placeholder="Titre" value="'.$title.'">
+									</div>
+									<div class="form-group">
+										<label for="category" class="sr-only">Catégorie</label>
+										<input type="text" name="category" id="email" class="form-control" placeholder="Catégorie"  value="'.$category.'">
+									</div>
+								  
+									<input type="submit" name= "add_record" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Ajouter '.$record.'"/>'
 						?>
-					</fieldset>
-				 </form>
-		  </div>
-		</div>
+                    </form>
+                    <hr>
+                   </div>
+               </div> <!-- /.col-xs-12 -->
+            </div> <!-- /.row -->
+          </div> <!-- /.container -->
+      </section>
+
+      <footer id="footer">
+          <div class="container">
+              <div class="row">
+                  <div class="col-xs-12">
+                      <p>Crée par Evgenii Kanivets et Hélène Martiuk</p>
+                  </div>
+              </div>
+          </div>
+      </footer>
+	  
 	</body>
 </html>
