@@ -13,8 +13,8 @@
 	<body>
 		<div class="main_container">
 			<div class = "header">
-				<?php echo "<p class >Welcome, ".$_SESSION['username']."!</p>"; ?>
-				<a href="logout.php">Logout</a>
+				<?php echo "<p class >Bienvenu, ".$_SESSION['username']."!</p>"; ?>
+				<a href="logout.php">Sortir</a>
 			</div>
 			<div class = "container">
 			 <?php
@@ -26,17 +26,12 @@
 							FROM records, categories
 							WHERE user_id='.$_SESSION['user_id'].
 							' AND category_id=categories.id'.
-							' AND time BETWEEN '.$ts_from.' AND '.$ts_to.';';
+							' AND time BETWEEN '.$ts_from.' AND '.$ts_to.
+							' ORDER BY time DESC;';
 					return $conn->query($sql);
 				}
 				
-				function displayReport($conn, $ts_from, $ts_to) {
-					$sql = 'SELECT records.id AS record_id, type, time, records.title AS title, categories.title AS category, price 
-							FROM records, categories
-							WHERE user_id='.$_SESSION['user_id'].
-							' AND category_id=categories.id'.
-							' AND time BETWEEN '.$ts_from.' AND '.$ts_to.';';
-							
+				function displayReport($conn, $ts_from, $ts_to) {							
 					$totalIncome = 0;
 					$totalExpense = 0;
 
@@ -89,7 +84,7 @@
 					}
 								
 					echo '<h2>Bref copmte rendu</h2>
-						  <p>: Revenu total'.$totalIncome.'<br>
+						  <p>Revenu total: '.$totalIncome.'<br>
 						  Dépense total: '.$totalExpense.'<br>
 						  Total: '.($totalIncome - $totalExpense).'</p>';
 				}
@@ -111,7 +106,7 @@
 			 ?>
 			</div>
 			<div class = "footer">
-				<p>Created by Evgenii Kanivets and Elena Martiuk</p>
+				<p>Crée par Evgenii Kanivets et Hélène Martiuk</p>
 			</div>
 		</div>
 	</body>
