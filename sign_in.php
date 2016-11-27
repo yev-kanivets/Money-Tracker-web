@@ -78,7 +78,8 @@
                 <div class="col-xs-12">
                    <div class="form-wrap">     
                    <h1>Entrer sur Compteur d'argent</h1>             
-                          <form action="sign_in.php" method="post" id="login-form" autocomplete="on">
+                          <form
+						  action="sign_in.php" method="post" id="login-form" autocomplete="on">
                               <div class="form-group">
                                   <label for="email" class="sr-only">E-mail</label>
                                   <input type="email" name="email" id="email" class="form-control" placeholder="E-mail">
