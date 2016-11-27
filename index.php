@@ -8,6 +8,7 @@
 	}
 ?>
 
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -65,7 +66,7 @@
 						
 						echo '<a href="report.php?ts_from='.$ts_from.'&ts_to='.$ts_to.'">Compte rendu</a>';
 					?>
-				<form>
+				</form>
 			</div>
 			
 			<div class = "container">

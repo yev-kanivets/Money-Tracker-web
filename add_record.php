@@ -3,6 +3,7 @@
    session_start();
 ?>
 
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -120,7 +121,7 @@
 							echo 'Ajouter '.$record;
 						?>
 				   </h1>             
-					<form role="form"  action="add_record.php" method="post" id="login-form" autocomplete="on">
+					<form action="add_record.php" method="post" id="login-form" autocomplete="on">
 						<?php
 							$record_id = isset($_GET['record_id']) ? $_GET['record_id'] : null;
 							$price = isset($_GET['price']) ? $_GET['price'] : null;
@@ -133,15 +134,15 @@
 								  
 									<div class="form-group">
 										<label for="price" class="sr-only">Prix</label>
-										<input type="number" name="price" id="email" class="form-control" placeholder="Prix" value="'.$price.'">
+										<input type="number" name="price" id="price" class="form-control" placeholder="Prix" value="'.$price.'">
 									</div>
 									<div class="form-group">
 										<label for="title" class="sr-only">Titre</label>
-										<input type="text" name="title" id="email" class="form-control" placeholder="Titre" value="'.$title.'">
+										<input type="text" name="title" id="title" class="form-control" placeholder="Titre" value="'.$title.'">
 									</div>
 									<div class="form-group">
 										<label for="category" class="sr-only">Catégorie</label>
-										<input type="text" name="category" id="email" class="form-control" placeholder="Catégorie"  value="'.$category.'">
+										<input type="text" name="category" id="category" class="form-control" placeholder="Catégorie"  value="'.$category.'">
 									</div>
 								  
 									<input type="submit" name= "add_record" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Ajouter '.$record.'"/>'

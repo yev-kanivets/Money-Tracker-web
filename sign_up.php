@@ -97,7 +97,7 @@
                 <div class="col-xs-12">
                    <div class="form-wrap">     
                    <h1>Signer au Compteur d'argent</h1>             
-                          <form role="form"  action="sign_up.php" method="post" id="login-form" autocomplete="on">
+                          <form action="sign_up.php" method="post" id="login-form" autocomplete="on">
                               <div class="form-group">
                                   <label for="full_name" class="sr-only">Nom</label>
                                   <input type="text" name="full_name" id="full_name" class="form-control" placeholder="Nom">
@@ -108,11 +108,11 @@
                               </div>
                               <div class="form-group">
                                   <label for="password" class="sr-only">Mot de passe</label>
-                                  <input type="password" name="password" id="key" class="form-control" placeholder="Mot de passe">
+                                  <input type="password" name="password" id="password" class="form-control" placeholder="Mot de passe">
                               </div>
                               <div class="form-group">
                                   <label for="confirm_password" class="sr-only">Mot de passe</label>
-                                  <input type="password" name="confirm_password" id="key" class="form-control" placeholder="Confirmer le mot de passe">
+                                  <input type="password" name="confirm_password" id="confirm_password" class="form-control" placeholder="Confirmer le mot de passe">
                               </div>
                               <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" name="sign_up" value="Signer">
                           </form>
