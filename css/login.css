@@ -18,11 +18,6 @@
 #login .checkbox {
     margin-bottom: 20px;
     position: relative;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -o-user-select: none;
-    user-select: none;
 }
 #login .checkbox.show:before {
     content: '\e013';
@@ -30,7 +25,6 @@
     font-size: 17px;
     margin: 1px 0 0 3px;
     position: absolute;
-    pointer-events: none;
     font-family: 'Glyphicons Halflings';
 }
 #login .checkbox .character-checkbox {
