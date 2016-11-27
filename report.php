@@ -74,6 +74,7 @@
 								<th>Prix</th>
 							</tr>';
 					
+					arsort($report);
 					foreach ($report as $category => $total) {
 						$recordClass = "";
 						if ($total >= 0) {
